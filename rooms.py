@@ -27,7 +27,7 @@ class Rooms:
         return 
     
 
-    def Dic_2 (self, strFilename = "rooms.txt") :
+    def Dic (self, strFilename = "rooms.txt") :
         a = open("rooms.txt")
         while 1:
             line = a.readline()
@@ -41,6 +41,7 @@ class Rooms:
 # class Rooms - end
 
 rooms = Rooms()
+rooms.Dic()
 #rooms.loadFromDisk()
 
 def makeQR () :
@@ -50,18 +51,18 @@ def auto_test():
     name = "203"
     print("salle %s => %s" % (name, rooms.getDesc(name) ) )
 
-if __name__ != "__main__":
+if __name__ == "__main__":
     auto_test()
 
 def Creation (key):
-    pass
+    QR_unit.QR_treatment.create(key)
 
 
 # Will help to automate the production of all the QR codes
 
 
 def referencer_2 ():
-    rooms.Dic_2()
+    rooms.Dic()
     datafromQR = QR_unit.QR_treatment.read()
     key = rooms.getDesc(datafromQR)
     print (key)
