@@ -15,8 +15,8 @@ class QR_treatment:
         img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
         img.save("%s.png" % (adresse))
 
-    def read () :
-        im = cv.imread('sample.png')
+    def read (qrcode) :
+        im = cv.imread(qrcode)
         det = cv.QRCodeDetector()
         retval, points, straight_qrcode = det.detectAndDecode(im)
         #print (retval,points,straight_qrcode)
